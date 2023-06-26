@@ -35,11 +35,11 @@ Name: "brazilianportuguese"; MessagesFile: "compiler:Languages\BrazilianPortugue
 Source: "..\Scripts\install_task.bat"; DestDir: "{userappdata}\Processa\ToolsManager"; Flags: ignoreversion
 Source: "..\Scripts\ver_rem_toolkit.bat"; DestDir: "{userappdata}\Processa\ToolsManager"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
-;Source: "..\Scripts\remove-tools.bat"; DestDir: "{userappdata}\Processa\Scripts"; Flags: ignoreversion
+Source: "..\Scripts\remove-tools.bat"; DestDir: "{userappdata}\Processa\Scripts"
 
 [Icons]
 ;Name: "{group}\{cm:ProgramOnTheWeb,{#MyAppName}}"; Filename: "{#MyAppURL}"
-;Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"
+Name: "{group}\Remover ToolsManager"; Filename: "{uninstallexe}"; WorkingDir: "{app}"; Check: IsWin64; AfterInstall: SetElevationBit('{group}\Remover ToolsManager.lnk')
 
 [Dirs]
 Name: "{userappdata}\Processa\ToolsManager\log"
@@ -50,3 +50,29 @@ Filename: "{userappdata}\Processa\ToolsManager\install_task.bat"; WorkingDir: "{
 
 [UninstallDelete]
 Type: filesandordirs; Name: "{userappdata}\Processa\ToolsManager"
+
+[UninstallRun]
+Filename: "{userappdata}\Processa\Scripts\remove-tools.bat"; AfterInstall: SetElevationBit('{group}\Remover ToolsManager.lnk')
+
+[Code]
+// Rodar como administrador
+procedure SetElevationBit(Filename: string);
+var
+  Buffer: string;
+  Stream: TStream;
+begin
+  Filename := ExpandConstant(Filename);
+  Log('Setting elevation bit for ' + Filename);
+
+  Stream := TFileStream.Create(FileName, fmOpenReadWrite);
+  try
+    Stream.Seek(21, soFromBeginning);
+    SetLength(Buffer, 1);
+    Stream.ReadBuffer(Buffer, 1);
+    Buffer[1] := Chr(Ord(Buffer[1]) or $20);
+    Stream.Seek(-1, soFromCurrent);
+    Stream.WriteBuffer(Buffer, 1);
+  finally
+    Stream.Free;
+  end;
+end;
