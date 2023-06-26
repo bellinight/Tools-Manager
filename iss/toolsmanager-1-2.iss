@@ -36,10 +36,11 @@ Source: "..\Scripts\install_task.bat"; DestDir: "{userappdata}\Processa\ToolsMan
 Source: "..\Scripts\ver_rem_toolkit.bat"; DestDir: "{userappdata}\Processa\ToolsManager"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 Source: "..\Scripts\remove-tools.bat"; DestDir: "{userappdata}\Processa\Scripts"
+Source: "..\Scripts\ver_log.bat"; DestDir: "{userappdata}\Processa\ToolsManager"
 
 [Icons]
-;Name: "{group}\{cm:ProgramOnTheWeb,{#MyAppName}}"; Filename: "{#MyAppURL}"
 Name: "{group}\Remover ToolsManager"; Filename: "{uninstallexe}"; WorkingDir: "{app}"; Check: IsWin64; AfterInstall: SetElevationBit('{group}\Remover ToolsManager.lnk')
+Name: "{group}\Verificar LOG da Tarefa"; Filename: "{userappdata}\Processa\ToolsManager\ver_log.bat"; WorkingDir: "{app}"; Check: IsWin64; AfterInstall: SetElevationBit('{group}\Remover ToolsManager.lnk')
 
 [Dirs]
 Name: "{userappdata}\Processa\ToolsManager\log"
