@@ -15,10 +15,3 @@ Para enfrentar esse desafio, foi criado o ProcessaGuard, um sistema que executa 
 🧰 Como reparar a ferramenta?
 
 Em determinadas situações, é possível que o ProcessaGuard remova erroneamente ferramentas de clientes ativos, resultando na inutilização das mesmas. Para solucionar esse problema sem a necessidade de uma reinstalação completa, é recomendado utilizar a opção de reparo disponível no instalador da ferramenta. Dessa forma, não será necessário realizar uma remoção completa.
-
-Onde posso baixar?
-
-Efetue o download do ultimo release diretamente no GIT. Segue link:
-
-https://github.com/bellinight/Tools-Manager
-
