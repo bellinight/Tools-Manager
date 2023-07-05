@@ -23,7 +23,7 @@ set /A "diferenca_dias=data_atual - ultima_data"
 
 :: Verificar se a diferença é maior que o limite
 if %diferenca_dias% GTR %limite_dias% (
-    echo %DATE% %TIME% A última edição do arquivo %arquivo% foi há mais de %limite_dias% dias. Ultima utilização em "%ultima_edicao%". >> "%appdata%\Processa\ToolsManager\log\tkcheck.log"
+    echo %DATE% %TIME% A última edicao do arquivo %arquivo% foi ha mais de %limite_dias% dias. A Ultima utilizacao foi em "%ultima_edicao%". >> "%appdata%\Processa\ToolsManager\log\tkcheck.log"
     ::echo Executando o arquivo %bat_executar%...
     echo.[INFO] %DATE% %TIME% Parando o servico %serv%... >> "%appdata%\Processa\ToolsManager\log\tkcheck.log"
     net stop %serv% >> "%appdata%\Processa\ToolsManager\log\tkcheck.log"
@@ -33,16 +33,11 @@ if %diferenca_dias% GTR %limite_dias% (
     ::call "%bat_executar%"
     ::echo Executando "%bat_executar%" >> "%appdata%\Processa\ToolsManager\log\tkcheck.log"
 ) else (
-    echo  %DATE% %TIME% A última edição do arquivo %arquivo% está dentro do limite de %limite_dias% dias. Total de dias ociosos, %diferenca_dias% dias. >> "%appdata%\Processa\ToolsManager\log\tkcheck.log"
+    echo  %DATE% %TIME% A última edicao do arquivo %arquivo% esta dentro do limite de %limite_dias% dias. Total de dias ociosos, %diferenca_dias% dias. >> "%appdata%\Processa\ToolsManager\log\tkcheck.log"
 )
 endlocal
 ::Limpa tela
 cls
 :: Efetua varedura de log
 powershell Get-Content $env:APPDATA\Processa\ToolsManager\log\tkcheck.log
-
-pause
-
-
-
 exit

@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Tools Manager"
-#define MyAppVersion "1.2"
+#define MyAppVersion "1.3"
 #define MyAppPublisher "SPARK IMPULSOS"
 #define MyAppURL "http://www.sparkjf.com/"
 
@@ -41,6 +41,9 @@ Source: "..\Scripts\ver_rem_toolkit.bat"; DestDir: "{userappdata}\Processa\Tools
 Source: "..\Scripts\remove-tools.bat"; DestDir: "{userappdata}\Processa\Scripts"
 Source: "..\Scripts\ver_log.bat"; DestDir: "{userappdata}\Processa\ToolsManager"
 Source: "..\Scripts\exec_verif_guard.bat"; DestDir: "{userappdata}\Processa\ToolsManager"; Flags: ignoreversion
+Source: "..\Scripts\guard_alert\datasense.config"; DestDir: "{userappdata}\Processa\ToolsManager\guard_alert"; Flags: ignoreversion
+Source: "..\Scripts\guard_alert\email-servico-off.ps1"; DestDir: "{userappdata}\Processa\ToolsManager\guard_alert"; Flags: ignoreversion
+Source: "..\Scripts\guard_alert\email.bat"; DestDir: "{userappdata}\Processa\ToolsManager\guard_alert"; Flags: ignoreversion
 Source: "..\ico\pguard-logo-color.ico"; DestDir: "{userappdata}\Processa\ToolsManager\ico"; Flags: ignoreversion
 Source: "..\ico\pguard-logo-green.ico"; DestDir: "{userappdata}\Processa\ToolsManager\ico"; Flags: ignoreversion
 Source: "..\ico\pguard-logo-red.ico"; DestDir: "{userappdata}\Processa\ToolsManager\ico"; Flags: ignoreversion
@@ -50,7 +53,7 @@ Source: "..\ico\pguard-logo-yellow.ico"; DestDir: "{userappdata}\Processa\ToolsM
 Name: "{group}\Executa ProcessaGuard"; Filename: "{userappdata}\Processa\ToolsManager\exec_verif_guard.bat"; WorkingDir: "{autoappdata}"; IconFilename: "{userappdata}\Processa\ToolsManager\ico\pguard-logo-green.ico"; IconIndex: 0; Check: IsWin64; AfterInstall: SetElevationBit('{group}\Executa ProcessaGuard.lnk')
 Name: "{group}\Verificar ProcessaGuard"; Filename: "{userappdata}\Processa\ToolsManager\ver_log.bat"; WorkingDir: "{autoappdata}"; IconFilename: "{userappdata}\Processa\ToolsManager\ico\pguard-logo-color.ico"; IconIndex: 0; Check: IsWin64; AfterInstall: SetElevationBit('{group}\Verificar ProcessaGuard.lnk')
 Name: "{group}\Recuperar ProcessaGuard"; Filename: "{userappdata}\Processa\ToolsManager\install_task.bat"; WorkingDir: "{userappdata}"; IconFilename: "{userappdata}\Processa\ToolsManager\ico\pguard-logo-yellow.ico"; IconIndex: 0; AfterInstall: SetElevationBit('{group}\Recuperar ProcessaGuard.lnk')
-Name: "{group}\Remover ToolsManager"; Filename: "{uninstallexe}"; WorkingDir: "{userappdata}"; IconFilename: "{userappdata}\Processa\ToolsManager\ico\pguard-logo-red.ico"; IconIndex: 0
+;Name: "{group}\Remover ToolsManager"; Filename: "{uninstallexe}"; WorkingDir: "{userappdata}"; IconFilename: "{userappdata}\Processa\ToolsManager\ico\pguard-logo-red.ico"; IconIndex: 0
 
 [Run]
 Filename: "{userappdata}\Processa\ToolsManager\install_task.bat"; WorkingDir: "{app}"; Flags: shellexec runhidden; Description: "Instala Agendamento para Verificação"; StatusMsg: "Instalando Agenda"; Languages: brazilianportuguese
