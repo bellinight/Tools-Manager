@@ -1,8 +1,8 @@
-TOOLS MANAGER apresenta, ProcessaGuard, algoritimo para validação de utilização de ferramentas.
+TOOLS MANAGER apresenta, ProcessaGuard, algoritmo para validação de utilização de ferramentas.
 
 💣  O Desafio!
 
-Automatizar a verificação de ociosidade de ferramentas essenciais para a correta gestão do frente de loja. Evitando notificações desnecessarias ao suporte e gestão mais acertiva do Cliente.
+Automatizar a verificação de ociosidade de ferramentas essenciais para a correta gestão do frente de loja. Evitando notificações desnecessárias ao suporte e gestão mais assertiva do Cliente.
 
 🌱 O Problema!
 
