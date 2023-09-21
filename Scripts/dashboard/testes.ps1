@@ -1,0 +1,1 @@
+$conn_ger.Execute("TRUNCATE TABLE public.dados_json") 
